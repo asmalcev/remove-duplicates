@@ -160,17 +160,93 @@ const reduceWithSetOfIds = () => {
     return noDuplicates.length;
 };
 
+const pushesUniqueInArrayWithIdsSet = () => {
+    if (!process.isAutotest) memory();
+
+    const idtypes = new Set();
+    const noDuplicates = [];
+    arr.forEach((el) => {
+        if (!idtypes.has(el.id + el.type)) {
+            idtypes.add(el.id + el.type);
+            noDuplicates.push(el);
+        }
+    });
+
+    if (!process.isAutotest) memoryEnd();
+
+    return noDuplicates.length;
+};
+
+const collectUniqueInSetWithIdsSet = () => {
+    if (!process.isAutotest) memory();
+
+    const idtypes = new Set();
+    const noDuplicates = new Set();
+    arr.forEach((el) => {
+        if (!idtypes.has(el.id + el.type)) {
+            idtypes.add(el.id + el.type);
+            noDuplicates.add(el);
+        }
+    });
+
+    if (!process.isAutotest) memoryEnd();
+
+    return Array.from(noDuplicates).length;
+};
+
+const forOfWithIdsMap = () => {
+    if (!process.isAutotest) memory();
+
+    const idtypes = {};
+    const out = [];
+    let j = 0;
+    for (const el of arr) {
+        const idtype = el.id + el.type;
+        if (idtypes[idtype] !== 1) {
+            idtypes[idtype] = 1;
+            out[j++] = el;
+        }
+    }
+
+    if (!process.isAutotest) memoryEnd();
+
+    return out.length;
+};
+
+const forOfWithIdsSet = () => {
+    if (!process.isAutotest) memory();
+
+    const idtypes = new Set();
+    const out = [];
+    let j = 0;
+    for (const el of arr) {
+        const idtype = el.id + el.type;
+        if (!idtypes.has(idtype)) {
+            idtypes.add(idtype);
+            out[j++] = el;
+        }
+    }
+
+    if (!process.isAutotest) memoryEnd();
+
+    return out.length;
+};
+
 const algos = [
     // filterByDeletingFromIdsSet,
     // toMapToValues,
     // toMapToValues2,
     // toMapToValues3,
-    reduceWithIndexCheck,
-    reduceWithIndexCheck2,
+    // reduceWithIndexCheck,
+    // reduceWithIndexCheck2,
     // filterWithSetOfIds,
     // filterWithMapOfIds,
     // toStringToSetToArrayToObject,
     // reduceWithSetOfIds,
+    // pushesUniqueInArrayWithIdsSet,
+    // collectUniqueInSetWithIdsSet,
+    // forOfWithIdsMap,
+    // forOfWithIdsSet,
 ];
 
 for (let i = 0; i < tests; i++) {
