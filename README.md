@@ -142,15 +142,15 @@ const reduceWithSetOfIds = () => {
 - Для снижения влияния других запущенных процессов указаны усредненные результаты по нескольким запускам
 - Память указана за 1 запуск
 
-| Алгоритм | Количество запусков | Время (мс) | Память (мб) |
-|---|---|---|---|
-| filterByDeletingFromIdsSet | 100 | `21.612` | 17.83 |
-| toMapToValues | 100 | `13.987` | 8.53 |
-| toMapToValues2 | 100 | `19.78` | 11.11 |
-| toMapToValues3 | 100 | `14.735` | 8.83 |
-| reduceWithIndexCheck | 20 | `3827.756` | 167.78 |
-| reduceWithIndexCheck2 | 20 | `2324.133` | 147.36 |
-| filterWithSetOfIds | 100 | `15.814` | 14.81 |
-| filterWithMapOfIds | 100 | `18.726` | 11.53 |
-| toStringToSetToArrayToObject | 100 | `16.507` | 17.48 |
-| reduceWithSetOfIds | 100 | `679.194` | 148.95 |
+| | Алгоритм | Количество запусков | Время (мс) | Память (мб) |
+|---|---|---|---|---|
+| ![.](https://placehold.co/12x12/FFF176/FFF176) | filterByDeletingFromIdsSet | 100 | `21.612` | 17.83 |
+| ![.](https://placehold.co/12x12/81C784/81C784) | toMapToValues | 100 | `13.987` | 8.53 |
+| ![.](https://placehold.co/12x12/FFF176/FFF176) | toMapToValues2 | 100 | `19.78` | 11.11 |
+| ![.](https://placehold.co/12x12/81C784/81C784) | toMapToValues3 | 100 | `14.735` | 8.83 |
+| ![.](https://placehold.co/12x12/E57373/E57373) | reduceWithIndexCheck | 20 | `3827.756` | 167.78 |
+| ![.](https://placehold.co/12x12/E57373/E57373) | reduceWithIndexCheck2 | 20 | `2324.133` | 147.36 |
+| ![.](https://placehold.co/12x12/81C784/81C784) | filterWithSetOfIds | 100 | `15.814` | 14.81 |
+| ![.](https://placehold.co/12x12/FFF176/FFF176) | filterWithMapOfIds | 100 | `18.726` | 11.53 |
+| ![.](https://placehold.co/12x12/FFF176/FFF176) | toStringToSetToArrayToObject | 100 | `16.507` | 17.48 |
+| ![.](https://placehold.co/12x12/E57373/E57373) | reduceWithSetOfIds | 100 | `679.194` | 148.95 |
