@@ -5,8 +5,6 @@ let testNumber = 1;
 export const measure = ({
     correctAnswer,
     target,
-    marker = 'target',
-    targetArgs = [],
 }) => {
     console.log(process.isAutotest ? '{' : '\n');
     console.log(
@@ -16,12 +14,12 @@ export const measure = ({
     );
 
     time();
-    const answer = target(...targetArgs);
+    const answer = target();
     timeEnd();
 
     if (process.isAutotest) {
         console.log(`"correct": ${answer === correctAnswer},`);
-        console.log(`"marker": "${marker}"`);
+        console.log(`"marker": "${target.name}"`);
     } else {
         if (answer === correctAnswer) {
             console.log('\x1b[32mCORRECT', answer);
@@ -33,7 +31,7 @@ export const measure = ({
                 correctAnswer
             );
         }
-        console.log(`marker: ${marker}`);
+        console.log(`marker: ${target.name}`);
     }
     if (process.isAutotest) console.log('},');
 };
