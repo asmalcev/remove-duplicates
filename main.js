@@ -145,51 +145,41 @@ const toStringToSetToArrayToObject = () => {
     return noDuplicates.length;
 };
 
+const reduceWithSetOfIds = () => {
+    if (!process.isAutotest) memory();
+
+    const idtypes = new Set();
+    const noDuplicates = arr.reduce((acc, el) => {
+        if (idtypes.has(el.id + el.type)) return acc;
+        idtypes.add(el.id + el.type);
+        return acc.concat(el);
+    }, []);
+
+    if (!process.isAutotest) memoryEnd();
+
+    return noDuplicates.length;
+};
+
+const algos = [
+    // filterByDeletingFromIdsSet,
+    // toMapToValues,
+    // toMapToValues2,
+    // toMapToValues3,
+    reduceWithIndexCheck,
+    reduceWithIndexCheck2,
+    // filterWithSetOfIds,
+    // filterWithMapOfIds,
+    // toStringToSetToArrayToObject,
+    // reduceWithSetOfIds,
+];
+
 for (let i = 0; i < tests; i++) {
-    // measure({
-    //     correctAnswer: arrIdsSet.size,
-    //     target: filterByDeletingFromIdsSet,
-    // });
-
-    // measure({
-    //     correctAnswer: arrIdsSet.size,
-    //     target: toMapToValues,
-    // });
-
-    // measure({
-    //     correctAnswer: arrIdsSet.size,
-    //     target: toMapToValues2,
-    // });
-
-    // measure({
-    //     correctAnswer: arrIdsSet.size,
-    //     target: toMapToValues3,
-    // });
-
-    // measure({
-    //     correctAnswer: arrIdsSet.size,
-    //     target: reduceWithIndexCheck,
-    // });
-
-    // measure({
-    //     correctAnswer: arrIdsSet.size,
-    //     target: reduceWithIndexCheck2,
-    // });
-
-    // measure({
-    //     correctAnswer: arrIdsSet.size,
-    //     target: filterWithSetOfIds,
-    // });
-
-    // measure({
-    //     correctAnswer: arrIdsSet.size,
-    //     target: filterWithMapOfIds,
-    // });
-
-    measure({
-        correctAnswer: arrIdsSet.size,
-        target: toStringToSetToArrayToObject,
-    });
+    algos.forEach((target) =>
+        measure({
+            correctAnswer: arrIdsSet.size,
+            target,
+        })
+    );
 }
 
 if (process.isAutotest) console.log('null]');
