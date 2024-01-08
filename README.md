@@ -210,27 +210,22 @@ const forOfWithIdsSet = () => {
 - Для снижения влияния других запущенных процессов указаны усредненные результаты по нескольким запускам
 - Память указана за 1 запуск
 
-| | Алгоритм | Количество запусков | Время (мс) | Память (мб) |
-|---|---|---|---|---|
-| ![.](https://placehold.co/12x12/FFF176/FFF176) | filterByDeletingFromIdsSet | 100 | `20.683` | `17.83` |
-| ![.](https://placehold.co/12x12/81C784/81C784) | toMapToValues | 100 | `13.101` | `8.53` |
-| ![.](https://placehold.co/12x12/FFF176/FFF176) | toMapToValues2 | 100 | `18.492` | `11.11` |
-| ![.](https://placehold.co/12x12/81C784/81C784) | toMapToValues3 | 100 | `14.548` | `8.83` |
-| ![.](https://placehold.co/12x12/E57373/E57373) | reduceWithIndexCheck | 20 | `3827.756` | `167.78` |
-| ![.](https://placehold.co/12x12/E57373/E57373) | reduceWithIndexCheck2 | 20 | `2324.133` | `147.36` |
-| ![.](https://placehold.co/12x12/FFF176/FFF176) | filterWithSetOfIds | 100 | `16.224` | `14.81` |
-| ![.](https://placehold.co/12x12/FFF176/FFF176) | filterWithMapOfIds | 100 | `17.858` | `11.53` |
-| ![.](https://placehold.co/12x12/FFF176/FFF176) | toStringToSetToArrayToObject | 100 | `16.722` | `17.48` |
-| ![.](https://placehold.co/12x12/E57373/E57373) | reduceWithSetOfIds | 100 | `712.121` | `148.95` |
-| ![.](https://placehold.co/12x12/FFF176/FFF176) | pushesUniqueInArrayWithIdsSet | 100 | `16.369` | `14.97` |
-| ![.](https://placehold.co/12x12/FFF176/FFF176) | collectUniqueInSetWithIdsSet | 100 | `19.366` | `17.13` |
-| ![.](https://placehold.co/12x12/81C784/81C784) | forOfWithIdsMap | 100 | `14.706` | `9.53` |
-| ![.](https://placehold.co/12x12/81C784/81C784) | forOfWithIdsSet | 100 | `13.272` | `10.88` |
-
-**1\. Место:** `toMapToValues`  
-**2\. Место:** `forOfWithIdsSet`  
-**3\. Место:** `toMapToValues3`  
-**4\. Место:** `forOfWithIdsMap`  
+| Алгоритм | Количество запусков |\|| Bun: Время (мс) | Bun: Память (мб) | Bun: Результат |\|| Node: Время (мс) | Node: Память (мб) | Node: Результат |
+|---|---:|---|---:|---:|:---:|---|---:|---:|:---:|
+| filterByDeletingFromIdsSet    | 100 |\|| `15.595`   | `17.83`  | ![.](https://placehold.co/12x12/FFF176/FFF176) |\|| `20.186`   | `9.1`  | ![.](https://placehold.co/12x12/FFF176/FFF176) |
+| toMapToValues                 | 100 |\|| `11.123`   | `8.53`   | ![.](https://placehold.co/12x12/81C784/81C784) |\|| `20.227`   | `12.3` | ![.](https://placehold.co/12x12/FFF176/FFF176) |
+| toMapToValues2                | 100 |\|| `12.334`   | `11.11`  | ![.](https://placehold.co/12x12/FFF176/FFF176) |\|| `25.978`   | `15.2` | ![.](https://placehold.co/12x12/FFF176/FFF176) |
+| toMapToValues3                | 100 |\|| `10.797`   | `8.83`   | ![.](https://placehold.co/12x12/81C784/81C784) |\|| `20.827`   | `12.4` | ![.](https://placehold.co/12x12/FFF176/FFF176) |
+| reduceWithIndexCheck          |  20 |\|| `3846.018` | `167.78` | ![.](https://placehold.co/12x12/E57373/E57373) |\|| `3766.658` | `60.5` | ![.](https://placehold.co/12x12/E57373/E57373) |
+| reduceWithIndexCheck2         |  20 |\|| `2326.5`   | `147.36` | ![.](https://placehold.co/12x12/E57373/E57373) |\|| `5406.284` | `55.3` | ![.](https://placehold.co/12x12/E57373/E57373) |
+| filterWithSetOfIds            | 100 |\|| `9.078`    | `14.81`  | ![.](https://placehold.co/12x12/81C784/81C784) |\|| `14.12`    | `6.5`  | ![.](https://placehold.co/12x12/FFF176/FFF176) |
+| filterWithMapOfIds            | 100 |\|| `12.93`    | `11.53`  | ![.](https://placehold.co/12x12/FFF176/FFF176) |\|| `17.645`   | `12.6` | ![.](https://placehold.co/12x12/FFF176/FFF176) |
+| toStringToSetToArrayToObject  | 100 |\|| `15.046`   | `17.48`  | ![.](https://placehold.co/12x12/FFF176/FFF176) |\|| `31.639`   | `14.5` | ![.](https://placehold.co/12x12/FFF176/FFF176) |
+| reduceWithSetOfIds            |  20 |\|| `703.121`  | `148.95` | ![.](https://placehold.co/12x12/E57373/E57373) |\|| `4579.778` | `46.7` | ![.](https://placehold.co/12x12/E57373/E57373) |
+| pushesUniqueInArrayWithIdsSet | 100 |\|| `9.471`    | `14.97`  | ![.](https://placehold.co/12x12/81C784/81C784) |\|| `14.876`   | `6.7`  | ![.](https://placehold.co/12x12/FFF176/FFF176) |
+| collectUniqueInSetWithIdsSet  | 100 |\|| `12.175`   | `17.13`  | ![.](https://placehold.co/12x12/FFF176/FFF176) |\|| `16.84`    | `6.9`  | ![.](https://placehold.co/12x12/FFF176/FFF176) |
+| forOfWithIdsMap               | 100 |\|| `12.36`    | `9.53`   | ![.](https://placehold.co/12x12/FFF176/FFF176) |\|| `11.907`   | `12.5` | ![.](https://placehold.co/12x12/81C784/81C784) |
+| forOfWithIdsSet               | 100 |\|| `10.891`   | `10.88`  | ![.](https://placehold.co/12x12/81C784/81C784) |\|| `9.057`    | `8.29` | ![.](https://placehold.co/12x12/81C784/81C784) |
 
 ## Выводы
 

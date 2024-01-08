@@ -1,11 +1,8 @@
-import { time, timeEnd } from './time';
+const { time, timeEnd } = require('./time');
 
 let testNumber = 1;
 
-export const measure = ({
-    correctAnswer,
-    target,
-}) => {
+const measure = ({ correctAnswer, target }) => {
     console.log(process.isAutotest ? '{' : '\n');
     console.log(
         `${process.isAutotest ? '"TEST"' : 'TEST'}: ${testNumber++}${
@@ -35,3 +32,5 @@ export const measure = ({
     }
     if (process.isAutotest) console.log('},');
 };
+
+module.exports = { measure };

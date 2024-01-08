@@ -3,10 +3,10 @@ const { promisify } = require('node:util');
 
 const asyncExec = promisify(exec);
 
-const TEST_COUNT = 100;
+const TEST_COUNT = 20;
 
 const data = JSON.parse(
-    (await asyncExec(`bun main.js --autotest ${TEST_COUNT}`)).stdout
+    (await asyncExec(`${process.argv[2] ?? 'bun'} main.js --autotest ${TEST_COUNT}`)).stdout
 ).filter(Boolean);
 
 const groupBy = (xs, key) =>

@@ -1,6 +1,7 @@
-import { arr } from './data';
-import { measure } from './measure';
-import { memory, memoryEnd } from './memory';
+const { arr } = require('./data');
+const { measure } = require('./measure');
+const { memory, memoryEnd } = require('./memory');
+
 
 process.isAutotest = process.argv[2] === '--autotest';
 const tests = Number(process.argv[3]) || 1;

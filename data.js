@@ -1,4 +1,4 @@
-import * as seedrandom from './seedrandom';
+const seedrandom = require('./seedrandom');
 seedrandom;
 
 const seed = 745627567231241;
@@ -20,4 +20,6 @@ const getRandomIdType = () => ({
     type: types[getRandomInt(types.length)],
 });
 
-export const arr = Object.freeze(Array.from({ length: 50000 }, getRandomIdType));
+const arr = Object.freeze(Array.from({ length: 50000 }, getRandomIdType));
+
+module.exports = { arr };
